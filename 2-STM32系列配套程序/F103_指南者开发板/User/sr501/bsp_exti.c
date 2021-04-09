@@ -60,8 +60,8 @@ void EXTI_SR501_Config(void)
 /*--------------------------GPIO配置-----------------------------*/
 	/* 选择按键用到的GPIO */	
   GPIO_InitStructure.GPIO_Pin = SR501_INT_GPIO_PIN;
-  /* 配置为浮空输入 */	
-  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN_FLOATING;
+  /* 配置为下拉输入 */	
+  GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;
   GPIO_Init(SR501_INT_GPIO_PORT, &GPIO_InitStructure);
 
 	/* 选择EXTI的信号源 */

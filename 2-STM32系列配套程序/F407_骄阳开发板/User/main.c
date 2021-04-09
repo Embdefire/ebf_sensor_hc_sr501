@@ -19,7 +19,15 @@
 #include "./led/bsp_led.h"
 #include "./sr501/bsp_exti.h"
 
-void Delay(__IO u32 nCount); 
+	/// 不精确的延时
+void Delay(__IO u32 nCount)
+{
+	for(; nCount != 0; nCount--);
+} 
+
+
+
+
 
 /**
   * @brief  主函数
@@ -37,6 +45,13 @@ int main(void)
 	/* 等待中断，由于使用中断方式，CPU不用轮询按键 */
 	while(1)                            
 	{
+		if( GPIO_ReadInputDataBit(SR501_INT_GPIO_PORT,SR501_INT_GPIO_PIN)  == 0 )
+		{			
+			GPIO_SetBits(LED1_GPIO_PORT, LED1_PIN);
+			
+		}
+	
+		Delay(0xFFF);
 	}
 }
 

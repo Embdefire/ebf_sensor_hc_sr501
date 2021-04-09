@@ -1,4 +1,4 @@
-/**
+ /**
   ******************************************************************************
   * @file    bsp_exti.c
   * @author  fire
@@ -63,8 +63,8 @@ void EXTI_SR501_Config(void)
   GPIO_InitStructure.GPIO_Pin = SR501_INT_GPIO_PIN;
   /* 设置引脚为输入模式 */ 
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;	    		
-  /* 设置引脚不上拉也不下拉 */
-  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_NOPULL;
+  /* 设置引脚下拉 */
+  GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
   /* 使用上面的结构体初始化按键 */
   GPIO_Init(SR501_INT_GPIO_PORT, &GPIO_InitStructure); 
 

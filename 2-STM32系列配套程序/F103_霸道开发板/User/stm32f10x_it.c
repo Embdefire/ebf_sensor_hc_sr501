@@ -147,8 +147,7 @@ void SR501_IRQHandler(void)
   //确保是否产生了EXTI Line中断
 	if(EXTI_GetITStatus(SR501_INT_EXTI_LINE) != RESET) 
 	{
-		// LED1 取反		
-		LED1_TOGGLE;
+		GPIO_ResetBits(LED1_GPIO_PORT, LED1_GPIO_PIN);
     //清除中断标志位
 		EXTI_ClearITPendingBit(SR501_INT_EXTI_LINE);     
 	}  
