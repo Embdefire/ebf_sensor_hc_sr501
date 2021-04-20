@@ -51,14 +51,14 @@ void EXTI_SR501_Config(void)
 	GPIO_InitTypeDef GPIO_InitStructure; 
 	EXTI_InitTypeDef EXTI_InitStructure;
 
-	/*开启按键GPIO口的时钟*/
+	/*开启GPIO口的时钟*/
 	RCC_APB2PeriphClockCmd(SR501_INT_GPIO_CLK,ENABLE);
 												
 	/* 配置 NVIC 中断*/
 	NVIC_Configuration();
 	
 /*--------------------------GPIO配置-----------------------------*/
-	/* 选择按键用到的GPIO */	
+	/* 选择用到的GPIO */	
   GPIO_InitStructure.GPIO_Pin = SR501_INT_GPIO_PIN;
   /* 配置为下拉输入 */	
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IPD;

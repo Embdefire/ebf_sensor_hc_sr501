@@ -29,7 +29,7 @@ static void NVIC_Configuration(void)
   /* 配置NVIC为优先级组1 */
   NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
   
-  /* 配置中断源：按键1 */
+  /* 配置中断源*/
   NVIC_InitStructure.NVIC_IRQChannel = SR501_INT_EXTI_IRQ;
   /* 配置抢占优先级：1 */
   NVIC_InitStructure.NVIC_IRQChannelPreemptionPriority = 1;
@@ -59,13 +59,13 @@ void EXTI_SR501_Config(void)
   /* 配置 NVIC */
   NVIC_Configuration();
   
-	/* 选择按键1的引脚 */ 
+	/* 选择引脚 */ 
   GPIO_InitStructure.GPIO_Pin = SR501_INT_GPIO_PIN;
   /* 设置引脚为输入模式 */ 
   GPIO_InitStructure.GPIO_Mode = GPIO_Mode_IN;	    		
   /* 设置引脚下拉 */
   GPIO_InitStructure.GPIO_PuPd = GPIO_PuPd_DOWN;
-  /* 使用上面的结构体初始化按键 */
+  /* 使用上面的结构体初始化 */
   GPIO_Init(SR501_INT_GPIO_PORT, &GPIO_InitStructure); 
 
 	/* 连接 EXTI 中断源 到SR501引脚 */
